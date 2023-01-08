@@ -90,8 +90,15 @@ const Role = db.role;
     process.exit();
   }); */
 
+  const dev_db_url =
+  "mongodb+srv://pai:MongoPai789@paipractice9.mk7qxu7.mongodb.net/test";
+
+  const mongoDB = process.env.MONGODB_URI || dev_db_url;
+
+
   db.mongoose
-  .connect(`mongodb+srv://pai:MongoPai789@paipractice9.mk7qxu7.mongodb.net/test`, {
+ // .connect(`mongodb+srv://pai:MongoPai789@paipractice9.mk7qxu7.mongodb.net/test`, {
+  .connect(`${mongoDB}`, {  
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
