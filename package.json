@@ -1,6 +1,12 @@
 {
   "name": "practice-online-store",
   "version": "1.0.0",
+
+  "engines": {
+    "node": "16.17.0"
+  },
+  "private": true,
+
   "description": "Node.js Restful CRUD API with Node.js, Express and MongoDB",
   "main": "server.js",
   "scripts": {
