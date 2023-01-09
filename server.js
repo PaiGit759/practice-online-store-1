@@ -35,12 +35,12 @@ app.get('/', function (req, res) {
   res.sendFile(path + "index.html");
 });
 
-app.post("/download", (req, res) => {
+/* app.post("/download", (req, res) => {
   console.log('*****', req.body);
 //  res.json({ message: "*****Practical work" });
   res.send('9999')
 });
-
+ */
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 
