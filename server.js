@@ -93,7 +93,8 @@ const Role = db.role;
   const dev_db_url =
   "mongodb+srv://pai:MongoPai789@paipractice9.mk7qxu7.mongodb.net/test";
 
-  const mongoDB = process.env.MONGODB_URI || dev_db_url;
+  //const mongoDB = process.env.MONGODB_URI || dev_db_url;
+  const mongoDB =  dev_db_url;
 
 
   db.mongoose
@@ -103,7 +104,7 @@ const Role = db.role;
     useUnifiedTopology: true
   })
   .then(() => {
-    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB *****.");
   //  console.log("!",Role);
     initial();
   })
