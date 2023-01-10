@@ -147,3 +147,6 @@ function initial() {
 //MongoDb Atlas pai MongoPai789
 
 //mongodb+srv://pai:MongoPai789@paipractice9.mk7qxu7.mongodb.net/test
+
+//npm install fs --save 
+//npm install env-cmd 
