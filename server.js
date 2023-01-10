@@ -44,6 +44,7 @@ app.get('/', function (req, res) {
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 
+
 require("./app/routes/tutorial.routes")(app);
 
 require('./app/routes/auth.routes')(app);
@@ -101,7 +102,7 @@ const Role = db.role;
  // .connect(`mongodb+srv://pai:MongoPai789@paipractice9.mk7qxu7.mongodb.net/test`, {
   .connect(`${mongoDB}`, {  
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
   .then(() => {
     console.log("Successfully connect to MongoDB *****.");
