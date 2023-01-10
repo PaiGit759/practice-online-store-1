@@ -2,14 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const dbConfig = require("./app/config/db.config");
-
-//const app = express();
-//const fs = require('fs');
-
-//
 const path = __dirname + '/app/views/';
-//const path = __dirname + '/app/public/';
 
 const app = express();
 app.use(express.static(path));
@@ -44,9 +37,7 @@ app.get('/', function (req, res) {
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 
-
 require("./app/routes/tutorial.routes")(app);
-
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 
@@ -54,11 +45,8 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
-
 const db = require("./app/models");
-
 const Role = db.role;
-
 
 // db.mongoose
 //   .connect(db.url, {
@@ -74,39 +62,16 @@ const Role = db.role;
 //     console.log("Cannot connect to the database!", err);
 //     process.exit();
 //   });
- 
 
-/* db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => {
-    console.log("Successfully connect to MongoDB.");
-  //  console.log("!",Role);
-    initial();
-  })
-  .catch(err => {
-    console.error("Connection error", err);
-    process.exit();
-  }); */
+const mongoDB = "mongodb+srv://pai:MongoPai789@paipractice9.mk7qxu7.mongodb.net/test";
 
-  const dev_db_url =
-  "mongodb+srv://pai:MongoPai789@paipractice9.mk7qxu7.mongodb.net/test";
-
-  //const mongoDB = process.env.MONGODB_URI || dev_db_url;
-  const mongoDB =  dev_db_url;
-
-
-  db.mongoose
- // .connect(`mongodb+srv://pai:MongoPai789@paipractice9.mk7qxu7.mongodb.net/test`, {
-  .connect(`${mongoDB}`, {  
+db.mongoose
+  .connect(`${mongoDB}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("Successfully connect to MongoDB *****.");
-  //  console.log("!",Role);
+    console.log("Successfully connect to MongoDB");
     initial();
   })
   .catch(err => {
@@ -114,44 +79,42 @@ const Role = db.role;
     process.exit();
   });
 
+function initial() {
+  Role.estimatedDocumentCount((err, count) => {
+    if (!err && count === 0) {
+      new Role({
+        name: "user"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
 
-   function initial() {
-   // console.log("!",Role);
-     Role.estimatedDocumentCount((err, count) => {
-      if (!err && count === 0) {
-        new Role({
-          name: "user"
-        }).save(err => {
-          if (err) {
-            console.log("error", err);
-          }
-  
-          console.log("added 'user' to roles collection");
-        });
-  
-        new Role({
-          name: "moderator"
-        }).save(err => {
-          if (err) {
-            console.log("error", err);
-          }
-  
-          console.log("added 'moderator' to roles collection");
-        });
-  
-        new Role({
-          name: "admin"
-        }).save(err => {
-          if (err) {
-            console.log("error", err);
-          }
-  
-          console.log("added 'admin' to roles collection");
-        });
-      }
-    });
-  } 
-  
+        console.log("added 'user' to roles collection");
+      });
+
+      new Role({
+        name: "moderator"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+
+        console.log("added 'moderator' to roles collection");
+      });
+
+      new Role({
+        name: "admin"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+
+        console.log("added 'admin' to roles collection");
+      });
+    }
+  });
+}
+
 
 
 
