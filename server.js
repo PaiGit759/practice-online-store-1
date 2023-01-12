@@ -150,3 +150,6 @@ function initial() {
 
 //npm install fs --save 
 //npm install env-cmd 
+
+//npm run build:local
+//npm run build:production
