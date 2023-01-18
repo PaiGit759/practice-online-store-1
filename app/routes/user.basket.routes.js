@@ -4,7 +4,9 @@ module.exports = app => {
     var router = require("express").Router();
   
 // Retrieve all Userbasket
-router.get("/", userbaskets.findAll);
+//router.get("/", userbaskets.findAll);
+router.get("/:id", userbaskets.findAll);
+
 
     // Create a new Userbasket
     router.post("/", userbaskets.create);

@@ -6,9 +6,11 @@ const UserBasket = db.userbasket;
   exports.findAll = (req, res) => {
   
   //var condition = req.query.user;
-  console.log("&&&&&------",req.query);
+//  console.log("&&&&&------");
 
-  var condition =  {};
+  const id = req.params.id;
+//console.log("&&&&&------",id);
+  var condition =  {user : id};
 
   UserBasket.find(condition)
     .then(data => {
