@@ -23,7 +23,7 @@ const Tutorial = db.tutorials;
 .populate({ path: 'goods', model: Tutorial })
     .then(data => {
 
-        console.log("&&&&&------",data);
+//        console.log("&&&&&------",data);
       res.send(data);
     })
     .catch(err => {
