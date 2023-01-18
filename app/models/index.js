@@ -9,6 +9,9 @@ db.mongoose = mongoose;
 db.user = require("./user.model");//(mongoose);
 db.role = require("./role.model");//(mongoose);
 
+
 db.ROLES = ["user", "admin", "moderator"];
+
+db.userbasket = require("./user.basket.model");//(mongoose);
 
 module.exports = db;

@@ -41,12 +41,16 @@ require("./app/routes/tutorial.routes")(app);
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 
+require('./app/routes/user.basket.routes')(app);
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
 const db = require("./app/models");
 const Role = db.role;
+
+const UserBasket = db.userbasket;
 
 // db.mongoose
 //   .connect(db.url, {
@@ -80,6 +84,20 @@ db.mongoose
   });
 
 function initial() {
+
+  //console.log(UserBasket);
+/* 
+  new UserBasket({
+//    name: "moderator"
+  }).save(err => {
+    if (err) {
+      console.log("error", err);
+    }
+
+    console.log("added UserBasket to collection");
+  });
+ */
+
   Role.estimatedDocumentCount((err, count) => {
     if (!err && count === 0) {
       new Role({
