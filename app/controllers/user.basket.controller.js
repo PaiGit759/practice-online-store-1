@@ -1,9 +1,12 @@
 const db = require("../models");
 const UserBasket = db.userbasket;
 
+const Tutorial = db.tutorials;
+
+
 //Получить все записанные корзины пользователя
-//exports.getAll = (req, res) => {
-  exports.findAll = (req, res) => {
+
+  exports.findAll =  (req, res) => {
   
   //var condition = req.query.user;
 //  console.log("&&&&&------");
@@ -12,9 +15,15 @@ const UserBasket = db.userbasket;
 //console.log("&&&&&------",id);
   var condition =  {user : id};
 
-  UserBasket.find(condition)
+ 
+  UserBasket
+  .find(condition)
+//  .find({_id:'63c824a3d189d3dbabc1ecb9' })
+//   .populate('goods')
+.populate({ path: 'goods', model: Tutorial })
     .then(data => {
-  //      console.log("&&&&&------",data);
+
+        console.log("&&&&&------",data);
       res.send(data);
     })
     .catch(err => {

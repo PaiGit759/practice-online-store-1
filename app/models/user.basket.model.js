@@ -6,8 +6,7 @@ const UserBasket = mongoose.model(
     user: {type: mongoose.Schema.Types.ObjectId,ref: "User"},
     quantity: Number,
     goods: 
-      {    type: mongoose.Schema.Types.ObjectId, ref: "Tutorial"}
-    
+      {    type: mongoose.Schema.Types.ObjectId, ref: "Tutorial"}  
   })
 );
 
