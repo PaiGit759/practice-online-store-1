@@ -171,3 +171,8 @@ function initial() {
 
 //npm run build:local
 //npm run build:production
+
+//npm install @material/data-table  "react-dom": "^18.2.0",
+
+//npm i ag-grid-community
+//npm i ag-grid-react
