@@ -176,3 +176,4 @@ function initial() {
 
 //npm i ag-grid-community
 //npm i ag-grid-react
+//npm i @ag-grid-community/core

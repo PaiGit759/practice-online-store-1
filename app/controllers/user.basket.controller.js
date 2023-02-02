@@ -8,9 +8,6 @@ const Tutorial = db.tutorials;
 
   exports.findAll =  (req, res) => {
   
-  //var condition = req.query.user;
-//  console.log("&&&&&------");
-
   const id = req.params.id;
 //console.log("&&&&&------",id);
   var condition =  {user : id};
@@ -18,8 +15,6 @@ const Tutorial = db.tutorials;
  
   UserBasket
   .find(condition)
-//  .find({_id:'63c824a3d189d3dbabc1ecb9' })
-//   .populate('goods')
 .populate({ path: 'goods', model: Tutorial })
     .then(data => {
 
