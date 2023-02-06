@@ -29,13 +29,6 @@ const Tutorial = db.tutorials;
     });
 };
 
-
-
-
-
-
-
-
 exports.create = (req, res) => {
   
 //  console.log("&&&&&------");

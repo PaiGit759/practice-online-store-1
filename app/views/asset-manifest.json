@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.39013d5d.css",
-    "main.js": "/static/js/main.00d7039f.js",
+    "main.css": "/static/css/main.04499cfc.css",
+    "main.js": "/static/js/main.f89e0d5e.js",
+    "static/media/tetyana.JPG": "/static/media/tetyana.dcda90e9e2ac5f62a2a4.JPG",
+    "static/media/anatolii.JPG": "/static/media/anatolii.e659ec61e3fe54dfb930.JPG",
     "index.html": "/index.html",
-    "main.39013d5d.css.map": "/static/css/main.39013d5d.css.map",
-    "main.00d7039f.js.map": "/static/js/main.00d7039f.js.map"
+    "main.04499cfc.css.map": "/static/css/main.04499cfc.css.map",
+    "main.f89e0d5e.js.map": "/static/js/main.f89e0d5e.js.map"
   },
   "entrypoints": [
-    "static/css/main.39013d5d.css",
-    "static/js/main.00d7039f.js"
+    "static/css/main.04499cfc.css",
+    "static/js/main.f89e0d5e.js"
   ]
 }

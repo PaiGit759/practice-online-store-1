@@ -13,5 +13,7 @@ db.role = require("./role.model");//(mongoose);
 db.ROLES = ["user", "admin", "moderator"];
 
 db.userbasket = require("./user.basket.model");//(mongoose);
+db.userorder = require("./user.order.model");//(mongoose);
+db.orderstatus = require("./order.status.model");//(mongoose);
 
 module.exports = db;

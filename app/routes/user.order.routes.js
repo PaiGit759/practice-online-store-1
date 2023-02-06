@@ -1,15 +1,15 @@
 module.exports = app => {
-    const userbaskets = require("../controllers/user.basket.controller.js");
+    const userorders = require("../controllers/user.order.controller.js");
   
     var router = require("express").Router();
   
-// Retrieve all Userbasket
+// Retrieve all userorders
 //router.get("/", userbaskets.findAll);
-router.get("/:id", userbaskets.findAll);
+//router.get("/:id", userorders.findAll);
 
 
-    // Create a new Userbasket
-    router.post("/", userbaskets.create);
-    app.use('/api/userbaskets', router);
+    // Create a new userorders
+    router.post("/", userorders.create);
+    app.use('/api/userorders', router);
 
   };
