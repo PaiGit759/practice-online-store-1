@@ -56,12 +56,10 @@ exports.create = (req, res) => {
     email: req.body.email,
     totalAmount: req.body.totalAmount,
 
-
-   goods: rowData,
-
+  goods: rowData,
   });
 
-  console.log("*&&&&&------",rowData);
+//  console.log("*&&&&&------",rowData);
 
    
 //http://localhost:8080/
@@ -78,9 +76,5 @@ exports.create = (req, res) => {
           err.message || "Some error occurred while creating the UserOrder."
       });
     }); 
-
- 
-
-
 };
 

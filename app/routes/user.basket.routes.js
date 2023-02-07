@@ -7,6 +7,8 @@ module.exports = app => {
 //router.get("/", userbaskets.findAll);
 router.get("/:id", userbaskets.findAll);
 
+// Delete a Userbasket with id
+router.delete("/:id", userbaskets.delete);
 
     // Create a new Userbasket
     router.post("/", userbaskets.create);
