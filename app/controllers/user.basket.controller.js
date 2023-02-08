@@ -58,9 +58,9 @@ exports.create = (req, res) => {
 //Удалить корзину пользователя с указанным id:
 exports.delete = (req, res) => {
   const id = req.params.id;
-    console.log("&&&&&------",id);
+//    console.log("&&&&&------",id);
 
-/* 
+ 
   UserBasket.findByIdAndRemove(id)
     .then(data => {
       if (!data) {
@@ -79,5 +79,5 @@ exports.delete = (req, res) => {
       });
     });
 
- */
+
 };
