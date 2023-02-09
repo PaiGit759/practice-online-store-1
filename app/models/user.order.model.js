@@ -13,13 +13,8 @@ const UserOrder = mongoose.model(
     user: {type: mongoose.Schema.Types.ObjectId,ref: "User"},
     orderstatus: {type: mongoose.Schema.Types.ObjectId,ref: "OrderStatus"},
          goods: [
-//          {type: mongoose.Schema.Types.ObjectId,ref: "Tutorial"},
-      
     {good:{type: mongoose.Schema.Types.ObjectId,ref: "Tutorial"},quantity : Number,amount : Number},
-  //    {good:{type: mongoose.Schema.Types.ObjectId,ref: "Tutorial"}},
     ]
-
-
   })
 );
 

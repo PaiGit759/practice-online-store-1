@@ -3,7 +3,9 @@ const UserOrder = db.userorder;
 
 const Tutorial = db.tutorials;
 
-/* 
+const OrderStatus = db.orderstatus;
+
+ 
 //Получить все записанные корзины пользователя
 
   exports.findAll =  (req, res) => {
@@ -13,9 +15,9 @@ const Tutorial = db.tutorials;
   var condition =  {user : id};
 
  
-  UserBasket
+  UserOrder
   .find(condition)
-.populate({ path: 'goods', model: Tutorial })
+.populate({ path: 'orderstatus', model: OrderStatus })
     .then(data => {
 
 //        console.log("&&&&&------",data);
@@ -28,46 +30,48 @@ const Tutorial = db.tutorials;
       });
     });
 };
- */
+
 
 
 exports.create = (req, res) => {
-  
-//  console.log("&&&&&------",req.body);
 
   const rowData = req.body.goods.map((elem) => {
-    // let xxx = Math.round(elem.quantity * elem.goods.price * (1 - elem.goods.discount / 100));
-    // itsum += xxx;
-    let vvv = { good: elem.id, quantity: elem.quantity , amount: elem.amount}
-  //  let vvv = {  quantity: elem.quantity, amount: elem.amount }
+    let vvv = { good: elem.id, quantity: elem.quantity, amount: elem.amount }
     return vvv;
   });
 
-
-
   // Create a UserBasket
-   const userorder = new UserOrder({
-    
+  const userorder = new UserOrder({
+
     user: req.body.user,
-    
+
     firstname: req.body.firstname,
     surname: req.body.surname,
     telephone: req.body.telephone,
     email: req.body.email,
-    totalAmount: req.body.totalAmount,
+    totalamount: req.body.totalamount,
+    adress: req.body.adress,
+    goods: rowData,
+    orderstatus: undefined,
 
-  goods: rowData,
   });
 
-//  console.log("*&&&&&------",rowData);
 
-   
-//http://localhost:8080/
-  // Save userbasket in the database
+
+  OrderStatus.findOne({ name: "formed" }, (err, status) => {
+    if (err) {
+      res.status(500).send({ message: err });
+      return;
+    }
+
+    userorder.orderstatus = status._id;
+
+
+  // Save userorder in the database
   userorder
     .save(userorder)
     .then(data => {
-    
+
       res.send(data);
     })
     .catch(err => {
@@ -75,6 +79,19 @@ exports.create = (req, res) => {
         message:
           err.message || "Some error occurred while creating the UserOrder."
       });
-    }); 
+    });
+
+  });
+
+  //console.log('NNNNN', userorder.orderstatus)
+
+  // userorder.orderstatus = orderstatus._id;
+
+
+
+
+
+
+    
 };
 

@@ -5,7 +5,7 @@ module.exports = app => {
   
 // Retrieve all userorders
 //router.get("/", userbaskets.findAll);
-//router.get("/:id", userorders.findAll);
+router.get("/:id", userorders.findAll);
 
 
     // Create a new userorders

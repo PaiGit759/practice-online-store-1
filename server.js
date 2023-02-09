@@ -90,7 +90,7 @@ db.mongoose
 
 function initial() {
 
- // console.log(OrderStatus); 
+//  console.log(OrderStatus); 
   
 
 /* 
@@ -113,7 +113,6 @@ function initial() {
         if (err) {
           console.log("error", err);
         }
-
         console.log("added 'user' to roles collection");
       });
 
@@ -123,7 +122,6 @@ function initial() {
         if (err) {
           console.log("error", err);
         }
-
         console.log("added 'moderator' to roles collection");
       });
 
@@ -133,12 +131,45 @@ function initial() {
         if (err) {
           console.log("error", err);
         }
-
         console.log("added 'admin' to roles collection");
       });
     }
-  });
+  }
+);
 
+
+
+OrderStatus.estimatedDocumentCount((err, count) => {
+  if (!err && count === 0) {
+    new OrderStatus({
+      name: "formed"
+    }).save(err => {
+      if (err) {
+        console.log("error", err);
+      }
+      console.log("added 'formed' to roles collection");
+    });
+
+    new OrderStatus({
+      name: "sent"
+    }).save(err => {
+      if (err) {
+        console.log("error", err);
+      }
+      console.log("added 'sent' to roles collection");
+    });
+
+    new OrderStatus({
+      name: "completed"
+    }).save(err => {
+      if (err) {
+        console.log("error", err);
+      }
+      console.log("added 'completed' to roles collection");
+    });
+  }
+}
+);
 
 
 
@@ -190,3 +221,7 @@ function initial() {
 //npm i ag-grid-community
 //npm i ag-grid-react
 //npm i @ag-grid-community/core
+
+// formed
+// Sent
+// Completed
